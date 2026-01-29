@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Académique | Économie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --accent: #15803d;  /* Sustainability Green */
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .section-padding {
+            padding: 5rem 1.5rem;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .splide__pagination__page.is-active {
+            background: var(--primary);
+        }
+        .splide__arrow {
+            background: white;
+            opacity: 0.9;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .splide__arrow:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .splide__arrow svg {
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav h-16 flex items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <span class="font-bold text-lg tracking-tight text-blue-900 serif">Sèdjro Harold Déo-Gracias TETE</span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
+                <a href="#accueil" class="nav-link">Accueil</a>
+                <a href="#memoire" class="nav-link">Mémoire</a>
+                <a href="#competences" class="nav-link">Compétences</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="md:hidden" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="accueil" class="min-h-screen flex items-center pt-16 section-padding relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-[-1] opacity-5">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Texte -->
+            <div class="reveal">
+                <h1 class="text-5xl md:text-7xl serif font-bold text-slate-900 leading-tight mb-6">
+                    Sèdjro Harold Déo-Gracias<br><span class="text-blue-900">TETE</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-6 max-w-lg">
+                    Expert en Économie Appliquée et Évaluation de Projets
+                </p>
+                <p class="text-slate-500 mb-8 max-w-xl leading-relaxed">
+                    Diplômé en économie et gestion de projets, j’ai acquis des compétences en analyse économique, méthodes quantitatives et évaluation de projets. Je suis motivé par l’impact concret des actions et la prise de décision basée sur les données.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="CV_Harold_TETE.pdf" target="_blank" class="px-8 py-4 border border-slate-300 text-slate-700 font-semibold rounded hover:bg-slate-50 transition flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i> Télécharger le CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- Photo -->
+            <!-- Photo style LinkedIn -->
+    <div class="relative flex justify-center reveal" style="transition-delay: 200ms;">
+        <div class="w-64 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl relative z-10">
+            <!-- Changez le src pour votre photo -->
+            <img src="Profil.png" alt="Portrait de Harold" class="w-full h-full object-contain bg-white">
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-green-700 rounded-2xl z-0 opacity-10"></div>
+        <div class="absolute -top-6 -left-6 w-48 h-48 border-2 border-blue-900 rounded-2xl z-0"></div>
+    </div>
+
+        </div>
+    </header>
+
+
+
+           <section id="projet" class="section-padding bg-slate-50">
+  <div class="container mx-auto max-w-4xl px-4 md:px-0">
+    <div class="card p-8 md:p-12 rounded-3xl relative overflow-hidden reveal">
+
+      <!-- Décoratif -->
+      <div class="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-gradient-to-tr from-green-100 to-green-50 rounded-full -mr-16 -mt-16 md:-mr-20 md:-mt-20 z-0"></div>
+
+      <div class="relative z-10">
+        <h2 class="text-3xl font-bold mb-8 serif text-blue-900">
+          Parcours Académique & Expériences Professionnelles
+        </h2>
+
+        <ul class="space-y-4 text-slate-700 leading-relaxed max-w-prose">
+          <li class="reveal" style="transition-delay:100ms;">
+            Titulaire d’une <strong>Licence en Planification, option Gestion des Projets</strong>, 
+            j’ai acquis une formation solide en économie appliquée, analyse quantitative, 
+            économétrie et évaluation de projets de développement. Ce parcours m’a permis 
+            de développer une forte capacité d’analyse, de structuration de problématiques 
+            complexes et de prise de décision fondée sur les données.
+          </li>
+
+          <li class="reveal" style="transition-delay:200ms;">
+            Dans le cadre de mes <strong>stages académiques et professionnels</strong>, 
+            j’ai participé à des activités de suivi-évaluation, d’analyse de données 
+            socio-économiques et d’appui à la conception et à l’évaluation de projets 
+            et politiques publiques. Ces expériences m’ont confronté aux réalités du terrain 
+            et aux enjeux concrets de l’efficacité des interventions publiques.
+          </li>
+
+          <li class="reveal" style="transition-delay:300ms;">
+            Ces différentes expériences ont progressivement orienté mon intérêt vers 
+            l’<strong>évaluation des politiques publiques et de la soutenabilité</strong>, 
+            en particulier dans les domaines liés au développement économique, 
+            à la sécurité alimentaire et à l’environnement dans les pays en développement.
+          </li>
+        </ul>
+
+        <div class="bg-white p-6 md:p-8 border-l-4 border-blue-900 italic shadow-sm mt-6 reveal" style="transition-delay:400ms;">
+          <p class="text-lg">
+            "Mon objectif est de mobiliser des outils rigoureux d’analyse économique 
+            et d’évaluation afin de produire des connaissances utiles à l’action publique 
+            et à l’amélioration des politiques de développement."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Thesis / Mémoire Section -->
+        <section id="memoire" class="section-padding bg-slate-50">
+            <div class="container mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <span class="text-green-700 font-bold tracking-widest text-xs uppercase mb-2 block">Travaux de recherche</span>
+                        <h2 class="text-4xl serif font-bold mb-6 text-slate-900">Mémoire de Licence</h2>
+                        <h3 class="text-xl font-medium text-blue-900 mb-6 italic">
+                            "Analyse de l'impact de l'autosuffisance alimentaire sur la croissance économique au Bénin : Une approche par la méthode VAR"
+                        </h3>
+                        
+                        <div class="space-y-6 text-slate-700">
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2"><i data-lucide="target" class="w-4 h-4"></i> Contexte & Problématique</h4>
+                                <p class="text-sm mt-1">Analyse des enjeux liés à l'autosuffisance alimentaire dans un contexte de développement et d'efficacité des politiques publiques.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2"><i data-lucide="settings" class="w-4 h-4"></i> Méthodologie</h4>
+                                <p class="text-sm mt-1">Utilisation de modèles économétriques et collecte de données de terrain. Analyse quantitative réalisée sous STATA.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-4 h-4"></i> Résultats Clés</h4>
+                                <p class="text-sm mt-1">Mise en évidence de l'impact significatif de la production nationale sur les importations en produit agricole, recommandant une révision des stratégies de planification.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <section id="memoire-carousel" class="splide" aria-label="Images du mémoire">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide p-2">
+                                        <img src="MP_1.png" alt="Page de garde mémoire" class="rounded-xl shadow-xl w-full aspect-[3/4] object-cover">
+                                    </li>
+                                    <li class="splide__slide p-2">
+                                        <img src="MP_2.png" alt="Graphique de recherche" class="rounded-xl shadow-xl w-full aspect-[3/4] object-cover">
+                                    </li>
+                                    <li class="splide__slide p-2">
+                                        <img src="MP_3.png" alt="Photo de terrain" class="rounded-xl shadow-xl w-full aspect-[3/4] object-cover">
+                                    </li>
+                                    <li class="splide__slide p-2">
+                                        <img src="MP_4.png" alt="Analyse économétrique" class="rounded-xl shadow-xl w-full aspect-[3/4] object-cover">
+                                    </li>
+                                    <li class="splide__slide p-2">
+                                        <img src="MP_5.png" alt="Analyse économétrique" class="rounded-xl shadow-xl w-full aspect-[3/4] object-cover">
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+   
+
+
+    <!-- Skills Section -->
+    <section id="competences" class="section-padding bg-white">
+        <div class="container mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl font-bold mb-4 serif text-blue-900">Compétences Techniques</h2>
+                <div class="w-20 h-1 bg-green-700 mx-auto mb-6"></div>
+                <p class="text-slate-600">Un profil pluridisciplinaire alliant théorie économique et maîtrise des outils d'analyse de données.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 reveal">
+                <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                    <i data-lucide="line-chart" class="w-8 h-8 text-blue-900 mb-4"></i>
+                    <h3 class="font-bold mb-2">Économie Appliquée</h3>
+                    <p class="text-xs text-slate-500">Microéconomie, macroéconomie, économie du développement.</p>
+                </div>
+                <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                    <i data-lucide="calculator" class="w-8 h-8 text-blue-900 mb-4"></i>
+                    <h3 class="font-bold mb-2">Analyse de Données</h3>
+                    <p class="text-xs text-slate-500">Statistiques descriptives et inférentielles, économétrie.</p>
+                </div>
+                <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                    <i data-lucide="layers" class="w-8 h-8 text-blue-900 mb-4"></i>
+                    <h3 class="font-bold mb-2">Évaluation de Projets</h3>
+                    <p class="text-xs text-slate-500">Planification stratégique, suivi-évaluation, analyse d'impact.</p>
+                </div>
+                <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                    <i data-lucide="pen-tool" class="w-8 h-8 text-blue-900 mb-4"></i>
+                    <h3 class="font-bold mb-2">Rédaction</h3>
+                    <p class="text-xs text-slate-500">Rapports techniques, notes de synthèse, rédaction académique.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-blue-900 p-8 rounded-2xl text-white reveal" style="transition-delay: 100ms;">
+                <h3 class="text-lg font-bold mb-6">Maîtrise des Outils</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold mb-1">STATA</div>
+                        <div class="w-full bg-white/20 h-1 rounded overflow-hidden"><div class="bg-green-400 h-full w-[85%]"></div></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold mb-1">Excel</div>
+                        <div class="w-full bg-white/20 h-1 rounded overflow-hidden"><div class="bg-green-400 h-full w-[95%]"></div></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold mb-1">Python</div>
+                        <div class="w-full bg-white/20 h-1 rounded overflow-hidden"><div class="bg-green-400 h-full w-[60%]"></div></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold mb-1">R</div>
+                        <div class="w-full bg-white/20 h-1 rounded overflow-hidden"><div class="bg-green-400 h-full w-[50%]"></div></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold mb-1">KoboToolbox</div>
+                        <div class="w-full bg-white/20 h-1 rounded overflow-hidden"><div class="bg-green-400 h-full w-[90%]"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+   <section class="section-padding bg-white overflow-hidden">
+        <div class="container mx-auto">
+            <div class="mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-2 serif text-blue-900">Certifications et Réussites Clés</h2>
+                <p class="text-slate-500">Quelques certifications, diplomes et moments clés.</p>
+            </div>
+            
+            <div class="reveal" style="transition-delay: 100ms;">
+                <section id="gallery-carousel" class="splide" aria-label="Galerie photos">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide px-2">
+                                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group relative">
+                                    <img src="Attestation.png" alt="Soutenance" class="w-full h-full object-cover transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                                        <p class="text-white text-sm font-medium">Attestation de Licence</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide px-2">
+                                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group relative">
+                                    <img src="Certificat.png" alt="Campus" class="w-full h-full object-cover transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                                        <p class="text-white text-sm font-medium">Certification Suivi & Evaluation de l'AFD</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide px-2">
+                                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group relative">
+                                    <img src="Acadi.png" alt="Recherche" class="w-full h-full object-cover transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                                        <p class="text-white text-sm font-medium">Expérience ACADI</p>
+                                    </div>
+                                </li>
+                                <li class="splide__slide px-2">
+                                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group relative">
+                                    <img src="EEIA.png" alt="Recherche" class="w-full h-full object-cover transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                                        <p class="text-white text-sm font-medium">Participation EEIA 2024</p>
+                                    </div>
+                                </li>
+                            <li class="splide__slide px-2">
+                                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group relative">
+                                    <img src="Acadi2.png" alt="Diplôme" class="w-full h-full object-cover transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                                        <p class="text-white text-sm font-medium">Expériences ACADI</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section Simplifiée -->
+<footer id="contact" class="bg-slate-900 text-white section-padding">
+    <div class="container mx-auto text-center md:text-left">
+        <h2 class="text-3xl font-bold mb-6 serif">Contact & Réseaux</h2>
+        <p class="text-slate-400 mb-8 max-w-md mx-auto md:mx-0">
+            Disponible pour toute demande concernant mon parcours académique ou mes projets.
+        </p>
+
+        <div class="flex flex-col md:flex-row md:items-center md:gap-12 justify-center md:justify-start space-y-4 md:space-y-0">
+            <!-- Email -->
+            <a href="mailto:sharold.tete@gmail.com" class="flex items-center gap-4 hover:text-green-400 transition">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-700/20 transition">
+                    <i data-lucide="mail"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Email</p>
+                    <p class="text-lg">sharold.tete@gmail.com</p>
+                </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="http://www.linkedin.com/in/harold-tete" target="_blank" class="flex items-center gap-4 hover:text-blue-400 transition">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-700/20 transition">
+                    <i data-lucide="linkedin"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">LinkedIn</p>
+                    <p class="text-lg">linkedin.com/in/harold-tete</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="pt-8 border-t border-white/10 text-slate-500 text-sm mt-8">
+            <p>&copy; 2026 - Portfolio Académique Personnel. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize Carousels
+        document.addEventListener('DOMContentLoaded', function () {
+            // Thesis Carousel
+            new Splide('#memoire-carousel', {
+                type: 'fade',
+                rewind: true,
+                arrows: true,
+                pagination: true,
+                autoplay: true,
+                interval: 4000,
+                speed: 1000,
+            }).mount();
+
+            // Gallery Carousel
+            new Splide('#gallery-carousel', {
+                type   : 'loop',
+                perPage: 3,
+                perMove: 1,
+                gap: '1rem',
+                autoplay: true,
+                interval: 5000,
+                breakpoints: {
+                    768: {
+                        perPage: 2,
+                    },
+                    640: {
+                        perPage: 1,
+                    },
+                },
+            }).mount();
+        });
+
+        // Reveal on scroll animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Mobile menu toggle (simple version)
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        menuBtn.addEventListener('click', () => {
+            // Mobile menu logic could be added here
+            alert("Le menu de navigation s'afficherait ici sur mobile.");
+        });
+    </script>
+</body>
+</html>
